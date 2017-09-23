@@ -12,8 +12,8 @@ class Song
 
   def self.create
     song = self.new
-    @@all << song
-    # self.all << song #should work thew same as above
+    # @@all << song
+    self.all << song #should work thew same as above
     song
   end
 
@@ -25,12 +25,12 @@ class Song
 
   def self.create_by_name(name)
     song = self.new_by_name(name) #no need to repeat code. use the above new_by_name method called on the instance.
-    @@all << song
+    self.all << song
     song
   end
 
   def self.find_by_name(name)
-    @@all.find do |song|
+    self.all.find do |song|
       song.name == name
     end
   end
@@ -44,7 +44,7 @@ class Song
   end
 
   def self.alphabetical
-    @@all.sort_by {|song| song.name}
+    self.all.sort_by {|song| song.name}
   end
 
   def self.new_from_filename(name)
@@ -56,7 +56,7 @@ class Song
 
   def self.create_from_filename(name)
     song = self.new_from_filename(name)
-    @@all << song
+    self.all << song
     song
    end
 
